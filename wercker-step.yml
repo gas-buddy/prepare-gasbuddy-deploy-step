@@ -8,4 +8,4 @@ properties:
   rebuild:
     type: string
     required: false
-    default: @gasbuddy/gb-services
+    default: "@gasbuddy/gb-services"
