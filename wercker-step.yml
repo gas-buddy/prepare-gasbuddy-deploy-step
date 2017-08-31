@@ -1,5 +1,5 @@
 name: prepare-gasbuddy-deploy
-version: 1.0.0
+version: 2.0.0
 description: Prepare a wercker build for efficient deployment to a container registry
 keywords:
   - deployment
@@ -8,4 +8,4 @@ properties:
   rebuild:
     type: string
     required: false
-    default: "@gasbuddy/gb-services"
+    default: "@gasbuddy/service"
