@@ -14,3 +14,8 @@ if npm ls bcrypt &>/dev/null; then
   npm rebuild bcrypt --build-from-source=bcrypt
   apk -q --no-progress --no-cache del .bcryptdeps
 fi
+
+# Rebuild stupid grpc
+if npm ls grpc &>/dev/null; then
+  npm rebuild grpc --update-binary
+fi
