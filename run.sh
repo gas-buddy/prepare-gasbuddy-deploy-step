@@ -11,7 +11,9 @@ rm -rf ~/.npmrc src tests coverage .nyc_output /pipeline/cache config/developmen
 # Rebuild stupid bcrypt
 if npm ls bcrypt &>/dev/null; then
   apk -q --no-progress --no-cache --virtual .bcryptdeps add make gcc g++ python
+  npm i -g node-pre-gyp
   npm rebuild bcrypt --build-from-source=bcrypt
+  npm rm -g node-pre-gyp
   apk -q --no-progress --no-cache del .bcryptdeps
 fi
 
