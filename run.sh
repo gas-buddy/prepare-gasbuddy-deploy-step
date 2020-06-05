@@ -13,8 +13,17 @@ if npm ls bcrypt &>/dev/null; then
   apk -q --no-progress --no-cache --virtual .bcryptdeps add make gcc g++ python
   npm i -g node-pre-gyp
   npm rebuild bcrypt --build-from-source=bcrypt
+  # Rebuild stupid sharp while we are at it
+  if npm ls sharp &>/dev/null; then
+    rm -rf node_modules/sharp/vendor
+    npm rebuild sharp
+  fi
   npm rm -g node-pre-gyp
   apk -q --no-progress --no-cache del .bcryptdeps
+elif npm ls sharp &>/dev/null; then
+  # Rebuild stupid sharp
+  rm -rf node_modules/sharp/vendor
+  npm rebuild sharp
 fi
 
 # Rebuild stupid grpc
