@@ -1,5 +1,4 @@
-box:
-  id: debian:buster-slim
+box: debian
 
 build:
     steps:
