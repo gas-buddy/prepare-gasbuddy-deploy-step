@@ -5,7 +5,7 @@ tags:
   - deployment
   - container
 properties:
-- name: rebuild
-  type: string
-  required: false
-  default: "@gasbuddy/service"
+  - name: rebuild
+    type: string
+    required: false
+    default: "@gasbuddy/service"
