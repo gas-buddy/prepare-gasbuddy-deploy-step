@@ -2,17 +2,17 @@ box: debian:stable-slim
 
 build:
   steps:
-    - shellcheck:
+    shellcheck:
       files: run.sh
 
-    - script:
+    script:
       name: prepare output
       code: rm -rf $WERCKER_ROOT/.git
 
 publish:
   steps:
-    - install-packages:
+    install-packages:
       packages: ca-certificates
 
-    - internal/publish-step:
+    internal/publish-step:
       owner: wercker
