@@ -27,3 +27,8 @@ if npm ls bcrypt sharp grpc >/dev/null 2>&1; then
   npm rm -g node-pre-gyp
   apk -q --no-progress --no-cache del .nativedeps
 fi
+
+#Skip terraform code from build
+if [ -d config/iam ]; then 
+    rm -rf config/iam;
+fi
