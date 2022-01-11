@@ -9,7 +9,7 @@ npm rebuild "$WERCKER_PREPARE_GASBUDDY_DEPLOY_REBUILD"
 rm -rf ~/.npmrc src tests coverage .nyc_output /pipeline/cache config/development.json .git
 
 if npm ls bcrypt sharp grpc >/dev/null 2>&1; then
-  apk -q --no-progress --no-cache --virtual .nativedeps add make gcc g++ python
+  apk -q --no-progress --no-cache --virtual .nativedeps add make gcc g++ python3
   npm i -g node-pre-gyp
   # Rebuild stupid bcrypt
   if npm ls bcrypt >/dev/null 2>&1; then
@@ -18,7 +18,7 @@ if npm ls bcrypt sharp grpc >/dev/null 2>&1; then
   # Rebuild stupid sharp
   if npm ls sharp >/dev/null 2>&1; then
     rm -rf node_modules/sharp/vendor
-    npm rebuild sharp
+    npm install --platform=linux --arch=x64 sharp
   fi
   # Rebuild stupid grpc
   if npm ls grpc >/dev/null 2>&1; then
@@ -29,6 +29,6 @@ if npm ls bcrypt sharp grpc >/dev/null 2>&1; then
 fi
 
 #Skip terraform code from build
-if [ -d config/iam ]; then 
+if [ -d config/iam ]; then
     rm -rf config/iam;
 fi

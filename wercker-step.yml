@@ -1,5 +1,5 @@
 name: prepare-gasbuddy-deploy
-version: 2.7.0
+version: 2.8.0
 summary: Prepare a wercker build for efficient deployment to a container registry
 tags:
   - deployment
